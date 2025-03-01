@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprendiendo Lógica de Programación con Qwen AI y Pol</title>
+  <style>
+    /* Estilos básicos para mejorar la presentación */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #333;
+    }
+    .resultado {
+      background-color: #f4f4f4; /* Fondo claro para resaltar los resultados */
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Título principal de la página -->
+  <h1>Resultado del Código JavaScript</h1>
+
+  <!-- Contenedor donde se mostrarán los resultados -->
+  <div id="resultados"></div>
+
+  <!-- Script con comentarios detallados -->
+  <script>
+    // Definimos variables numéricas y de tipo string para compararlas
+    let numeroUno = 1; // Variable de tipo número
+    let stringUno = '1'; // Variable de tipo string (cadena de texto)
+    let numeroTreinta = 30; // Variable de tipo número
+    let stringTreinta = '30'; // Variable de tipo string
+    let numeroDiez = 10; // Variable de tipo número
+    let stringDiez = '10'; // Variable de tipo string
+
+    // Obtenemos el contenedor donde mostraremos los resultados
+    const resultadosDiv = document.getElementById('resultados');
+
+    /**
+     * Función para agregar un resultado al contenedor de resultados.
+     * @param {string} mensaje - El mensaje que queremos mostrar.
+     */
+    function agregarResultado(mensaje) {
+      const resultadoElemento = document.createElement('div'); // Creamos un nuevo elemento <div>
+      resultadoElemento.className = 'resultado'; // Le asignamos una clase para aplicar estilos
+      resultadoElemento.textContent = mensaje; // Agregamos el mensaje como contenido del <div>
+      resultadosDiv.appendChild(resultadoElemento); // Añadimos el <div> al contenedor
+    }
+
+    // Comparación usando el operador == (igualdad flexible)
+    // Este operador compara valores sin tener en cuenta el tipo de dato.
+    // Más información: https://developer.mozilla.org/es/docs/Web/JavaScript/Equality_comparisons_and_sameness
+    if (numeroUno == stringUno) {
+      agregarResultado('Las variables numeroUno y stringUno tienen el mismo valor, pero tipos diferentes');
+    } else {
+      agregarResultado('Las variables numeroUno y stringUno no tienen el mismo valor');
+    }
+
+    // Comparación usando el operador === (igualdad estricta)
+    // Este operador compara tanto el valor como el tipo de dato.
+    // Más información: https://developer.mozilla.org/es/docs/Web/JavaScript/Equality_comparisons_and_sameness
+    if (numeroTreinta === stringTreinta) {
+      agregarResultado('Las variables numeroTreinta y stringTreinta tienen el mismo valor y el mismo tipo');
+    } else {
+      agregarResultado('Las variables numeroTreinta y stringTreinta no tienen el mismo tipo');
+    }
+
+    // Otra comparación usando el operador == (igualdad flexible)
+    if (numeroDiez == stringDiez) {
+      agregarResultado('Las variables numeroDiez y stringDiez tienen el mismo valor, pero tipos diferentes');
+    } else {
+      agregarResultado('Las variables numeroDiez y stringDiez no tienen el mismo valor');
+    }
+  </script>
+
+  <!-- Enlaces útiles para que los alumnos profundicen en los conceptos -->
+  <footer style="margin-top: 30px;">
+    <p>Para aprender más sobre estos temas, consulta los siguientes enlaces:</p>
+    <ul>
+      <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Equality_comparisons_and_sameness" target="_blank">Comparaciones de igualdad en JavaScript</a></li>
+      <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Expressions_and_Operators#operadores_de_igualdad" target="_blank">Operadores de igualdad en JavaScript</a></li>
+      <li><a href="https://www.w3schools.com/js/js_operators.asp" target="_blank">Operadores en JavaScript (W3Schools)</a></li>
+    </ul>
+  </footer>
+</body>
+</html>

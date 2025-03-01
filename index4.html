@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprendiendo Lógica de Programación</title>
+  <style>
+    /* Estilos básicos para mejorar la presentación */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #333;
+    }
+    .resultado {
+      background-color: #f4f4f4; /* Fondo claro para resaltar los resultados */
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Título principal de la página -->
+  <h1>Juego de Adivinanza de Números</h1>
+
+  <!-- Contenedor donde se mostrarán los resultados -->
+  <div id="resultados"></div>
+
+  <!-- Script con comentarios detallados -->
+  <script>
+    /**
+     * Definimos el número secreto que el usuario debe adivinar.
+     * Este número es fijo (7) para este ejemplo.
+     */
+    const numeroAdivinacion = 7;
+
+    let acerto = false; // Variable para rastrear si el usuario acertó
+
+    /**
+     * Usamos un bucle for para permitir al usuario intentar adivinar el número hasta 3 veces.
+     * Más información sobre el bucle for: https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/for
+     */
+    for (let contador = 0; contador < 3; contador++) {
+      let intento = prompt(`Intento ${contador + 1}: Intenta adivinar el número del 0 al 10:`);
+
+      /**
+       * Validamos que el usuario haya ingresado un valor y que sea un número.
+       * Si no ingresa nada o cancela el cuadro de diálogo, mostramos un mensaje y continuamos.
+       */
+      if (intento === null || intento.trim() === "") {
+        alert("Debes ingresar un número para continuar.");
+        agregarResultado("Intento inválido: No se ingresó ningún número.");
+        continue; // Saltamos al siguiente intento
+      }
+
+      /**
+       * Convertimos el intento a un número y verificamos si es válido.
+       */
+      intento = Number(intento);
+      if (isNaN(intento)) {
+        alert("Por favor, ingresa un número válido.");
+        agregarResultado("Intento inválido: No se ingresó un número válido.");
+        continue; // Saltamos al siguiente intento
+      }
+
+      /**
+       * Evaluamos si el intento del usuario coincide con el número secreto.
+       * Si acierta, mostramos un mensaje de felicitaciones y salimos del bucle usando break.
+       */
+      if (intento === numeroAdivinacion) {
+        const mensajeAcertado = `¡Felicidades, acertaste! El número era ${numeroAdivinacion}.`;
+        alert(mensajeAcertado); // Mostramos el mensaje en un cuadro de diálogo
+        agregarResultado(mensajeAcertado); // Mostramos el mensaje en la página
+        acerto = true;
+        break; // Salimos del bucle si el usuario acierta
+      }
+
+      /**
+       * Si no acierta, mostramos un mensaje indicando que el intento fue incorrecto.
+       */
+      const mensajeIncorrecto = "¡Incorrecto!";
+      alert(mensajeIncorrecto); // Mostramos el mensaje en un cuadro de diálogo
+      agregarResultado(mensajeIncorrecto); // Mostramos el mensaje en la página
+    }
+
+    /**
+     * Si el usuario no acertó después de 3 intentos, mostramos un mensaje final.
+     */
+    if (!acerto) {
+      const mensajeNoAcertado = `Desafortunadamente, no acertaste. ¡El número era ${numeroAdivinacion}!`;
+      alert(mensajeNoAcertado); // Mostramos el mensaje en un cuadro de diálogo
+      agregarResultado(mensajeNoAcertado); // Mostramos el mensaje en la página
+    }
+
+    /**
+     * Función para agregar un resultado al contenedor de resultados.
+     * @param {string} mensaje - El mensaje que queremos mostrar.
+     */
+    function agregarResultado(mensaje) {
+      const resultadoElemento = document.createElement('div'); // Creamos un nuevo elemento <div>
+      resultadoElemento.className = 'resultado'; // Le asignamos una clase para aplicar estilos
+      resultadoElemento.textContent = mensaje; // Agregamos el mensaje como contenido del <div>
+      resultadosDiv.appendChild(resultadoElemento); // Añadimos el <div> al contenedor
+    }
+  </script>
+
+  <!-- Enlaces útiles para que los alumnos profundicen en los conceptos -->
+  <footer style="margin-top: 30px;">
+    <p>Para aprender más sobre estos temas, consulta los siguientes enlaces:</p>
+    <ul>
+      <li><a href="https://developer.mozilla.org/es/docs/Web/API/Window/prompt" target="_blank">Función prompt() en JavaScript</a></li>
+      <li><a href="https://developer.mozilla.org/es/docs/Web/API/Window/alert" target="_blank">Función alert() en JavaScript</a></li>
+      <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/for" target="_blank">Bucle for en JavaScript</a></li>
+      <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/isNaN" target="_blank">Validación de números con isNaN()</a></li>
+      <li><a href="https://www.freecodecamp.org/news/javascript-for-loop-tutorial/" target="_blank">Tutorial sobre bucles for en JavaScript</a></li>
+    </ul>
+  </footer>
+</body>
+</html>

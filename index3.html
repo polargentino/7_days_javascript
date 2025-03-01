@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprendiendo Lógica de Programación</title>
+  <style>
+    /* Estilos básicos para mejorar la presentación */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #333;
+    }
+    .resultado {
+      background-color: #f4f4f4; /* Fondo claro para resaltar los resultados */
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Título principal de la página -->
+  <h1>Explorando Áreas y Tecnologías en Desarrollo con Pol</h1>
+
+  <!-- Contenedor donde se mostrarán los resultados -->
+  <div id="resultados"></div>
+
+  <!-- Script con comentarios detallados -->
+  <script>
+    /**
+     * Solicitamos al usuario que elija entre 'Front-End' o 'Back-End'.
+     * Usamos prompt() para obtener la entrada del usuario.
+     */
+    const area = prompt("¿Quieres seguir en el área de 'Front-End' o 'Back-End'? Escribe el nombre del área:");
+
+    let lenguaje = ""; // Variable para almacenar el lenguaje elegido
+
+    /**
+     * Evaluamos la elección del usuario usando condicionales (if...else if).
+     * Dependiendo de la respuesta, solicitamos un lenguaje específico.
+     */
+    if (area === "Front-End") {
+      lenguaje = prompt("¿Quieres aprender React o Vue?");
+    } else if (area === "Back-End") {
+      lenguaje = prompt("¿Quieres aprender C# o Java?");
+    } else {
+      alert("¡No ingresaste un área válida!");
+    }
+
+    /**
+     * Preguntamos al usuario si desea especializarse en el área elegida o convertirse en Fullstack.
+     * Usamos prompt() para obtener la respuesta y evaluamos con condicionales.
+     */
+    const especialidadOFullstack = prompt("Escribe 1 para seguir especializándote en el área elegida o 2 para desarrollarte para convertirte en Fullstack");
+
+    if (especialidadOFullstack == 1) {
+      const mensajeEspecializacion = `¡Sigue especializándote en ${lenguaje} para dominar el área de ${area}!`;
+      alert(mensajeEspecializacion); // Mostramos el mensaje en un cuadro de diálogo
+      agregarResultado(mensajeEspecializacion); // Mostramos el mensaje en la página
+    } else if (especialidadOFullstack == 2) {
+      const mensajeFullstack = `¡Es hora de comenzar a aprender otros lenguajes además de ${lenguaje} si quieres convertirte en Fullstack!`;
+      alert(mensajeFullstack); // Mostramos el mensaje en un cuadro de diálogo
+      agregarResultado(mensajeFullstack); // Mostramos el mensaje en la página
+    } else {
+      alert("¡No ingresaste un valor válido!");
+    }
+
+    /**
+     * Usamos un bucle while para preguntar si el usuario quiere aprender más tecnologías.
+     * El bucle continúa mientras el usuario escriba "ok".
+     */
+    let mensaje = prompt("¿Hay alguna otra tecnología que te gustaría aprender? Escribe 'ok' en caso positivo.");
+
+    while (mensaje === "ok") {
+      const nuevaTecnología = prompt("¿Cuál?");
+      const mensajeTecnologia = `${nuevaTecnología} es realmente una tecnología muy interesante!`;
+      alert(mensajeTecnologia); // Mostramos el mensaje en un cuadro de diálogo
+      agregarResultado(mensajeTecnologia); // Mostramos el mensaje en la página
+      mensaje = prompt("¿Hay alguna otra tecnología que te gustaría aprender? Escribe 'ok' en caso positivo.");
+    }
+
+    /**
+     * Función para agregar un resultado al contenedor de resultados.
+     * @param {string} mensaje - El mensaje que queremos mostrar.
+     */
+    function agregarResultado(mensaje) {
+      const resultadoElemento = document.createElement('div'); // Creamos un nuevo elemento <div>
+      resultadoElemento.className = 'resultado'; // Le asignamos una clase para aplicar estilos
+      resultadoElemento.textContent = mensaje; // Agregamos el mensaje como contenido del <div>
+      resultadosDiv.appendChild(resultadoElemento); // Añadimos el <div> al contenedor
+    }
+  </script>
+
+  <!-- Enlaces útiles para que los alumnos profundicen en los conceptos -->
+  <footer style="margin-top: 30px;">
+    <p>Para aprender más sobre estos temas, consulta los siguientes enlaces:</p>
+    <ul>
+      <li><a href="https://developer.mozilla.org/es/docs/Web/API/Window/prompt" target="_blank">Función prompt() en JavaScript</a></li>
+      <li><a href="https://developer.mozilla.org/es/docs/Web/API/Window/alert" target="_blank">Función alert() en JavaScript</a></li>
+      <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/if...else" target="_blank">Condicionales (if...else) en JavaScript</a></li>
+      <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/while" target="_blank">Bucle while en JavaScript</a></li>
+      <li><a href="https://www.freecodecamp.org/news/front-end-vs-back-end-development/" target="_blank">Diferencias entre Front-End y Back-End</a></li>
+    </ul>
+  </footer>
+</body>
+</html>

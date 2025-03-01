@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprendiendo Lógica de Programación</title>
+  <style>
+    /* Estilos básicos para mejorar la presentación */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #333;
+    }
+    .resultado {
+      background-color: #f4f4f4; /* Fondo claro para resaltar los resultados */
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Título principal de la página -->
+  <h1>Introducción a las Entradas y Salidas en JavaScript</h1>
+
+  <!-- Contenedor donde se mostrarán los resultados -->
+  <div id="resultados"></div>
+
+  <!-- Script con comentarios detallados -->
+  <script>
+    /**
+     * Solicitamos información al usuario usando la función prompt().
+     * La función prompt() muestra un cuadro de diálogo donde el usuario puede ingresar texto.
+     * Más información: https://developer.mozilla.org/es/docs/Web/API/Window/prompt
+     */
+    const nombre = prompt("¿Cuál es tu nombre?"); // Guardamos el nombre del usuario
+    const edad = prompt("¿Cuántos años tienes?"); // Guardamos la edad del usuario
+    const lenguaje = prompt("¿Qué lenguaje de programación estás estudiando?"); // Guardamos el lenguaje
+
+    /**
+     * Creamos un mensaje personalizado usando plantillas de texto (template literals).
+     * Las plantillas de texto permiten incluir variables dentro de cadenas usando ${}.
+     * Más información: https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Template_literals
+     */
+    const mensaje = `Hola ${nombre}, tienes ${edad} años y ya estás aprendiendo ${lenguaje}!`;
+
+    /**
+     * Mostramos el mensaje al usuario usando la función alert().
+     * La función alert() muestra un cuadro de diálogo con el mensaje especificado.
+     * Más información: https://developer.mozilla.org/es/docs/Web/API/Window/alert
+     */
+    alert(mensaje);
+
+    /**
+     * También mostramos el mensaje en la página para que sea visible sin necesidad de cerrar el cuadro de diálogo.
+     */
+    const resultadosDiv = document.getElementById('resultados');
+    const resultadoElemento = document.createElement('div');
+    resultadoElemento.className = 'resultado';
+    resultadoElemento.textContent = mensaje;
+    resultadosDiv.appendChild(resultadoElemento);
+  </script>
+
+  <!-- Enlaces útiles para que los alumnos profundicen en los conceptos -->
+  <footer style="margin-top: 30px;">
+    <p>Para aprender más sobre estos temas, consulta los siguientes enlaces:</p>
+    <ul>
+      <li><a href="https://developer.mozilla.org/es/docs/Web/API/Window/prompt" target="_blank">Función prompt() en JavaScript</a></li>
+      <li><a href="https://developer.mozilla.org/es/docs/Web/API/Window/alert" target="_blank">Función alert() en JavaScript</a></li>
+      <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Template_literals" target="_blank">Plantillas de texto (Template Literals) en JavaScript</a></li>
+    </ul>
+  </footer>
+</body>
+</html>
